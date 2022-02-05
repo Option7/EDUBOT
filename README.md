@@ -7,7 +7,7 @@ on top whiles making it easier to code.
 This library is not harwdware kit specific and thus works with Arduino compatible boards except for Bluetooth which varies between ARDUINO and ESP32 variants.
 
 EDUBOT BLINK EXAMPLE;
-
+```
 #include <EDUBOT.h>
    
 LIGHT light (13); //Declare a LIGHT object
@@ -24,11 +24,11 @@ void loop() {
   light.off(); //turn off light
   delay(1000); //wait 1 sec
 }
-
+```
 
 
 TYPICAL ARDUINO BLINK EXAMPLE;
-
+```
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
@@ -42,3 +42,4 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
   delay(1000);                       // wait for a second
 }
+```
