@@ -1,6 +1,6 @@
 # EDUBOT
 
-EDUBOT is a library built on top of pre-installed Arduino library with the sole aim to make programming 
+EDUBOT is a library built on top of pre-installed Arduino libraries with the sole aim to make programming 
 very easy and interesting especially for kids and newbies. It maintains the same functionality as the libraries it has been built 
 on top whiles making it easier to code. 
 
