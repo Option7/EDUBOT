@@ -71,6 +71,9 @@ class MOTOR {
     // Move MOTOR reverse
     void reverse();
 	
+	//Set MOTOR speed
+	void speed();
+	
 	//Make MOTOR stop
 	void stop();
 };

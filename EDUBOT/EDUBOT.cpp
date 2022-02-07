@@ -48,9 +48,23 @@ MOTOR::MOTOR(byte pin1, byte pin2) {
   start_motor();
 }
 
+MOTOR::MOTOR(byte pin1, byte pin2, byte pin3) {
+  this->pin1 = pin1;
+  this->pin2 = pin2;
+  this->pin3 = pin3;
+  start_motor_spd_pin();
+}
+
 void MOTOR::start_motor() {
   pinMode(pin1, OUTPUT);
   pinMode(pin2, OUTPUT);
+  //off();
+}
+
+void MOTOR::start_motor_spd_pin() {
+  pinMode(pin1, OUTPUT);
+  pinMode(pin2, OUTPUT);
+  pinMode(pin3, OUTPUT);
   //off();
 }
 
@@ -62,6 +76,11 @@ void MOTOR::forward() {
 void MOTOR::reverse() {
   digitalWrite(pin1, LOW);
   digitalWrite(pin2, HIGH);
+}
+
+void MOTOR::speed(int spd) {
+  int speed = map( spd, 0, 100, 0, 1023);
+  analogWrite(pin3, speed);
 }
 
 void MOTOR::stop() {
