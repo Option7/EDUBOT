@@ -52,6 +52,18 @@
 #define Rw B00000010  // Read/Write bit
 #define Rs B00000001  // Register select bit
 
+
+class SPEED {
+public:
+	SPEED(int pin);
+	void setSpeed(int speed);
+private:
+	int _pin;
+};
+
+
+
+
 class MOTOR {
   
   private:
@@ -71,8 +83,6 @@ class MOTOR {
     // Move MOTOR reverse
     void reverse();
 	
-	//Set MOTOR speed
-	void speed();
 	
 	//Make MOTOR stop
 	void stop();

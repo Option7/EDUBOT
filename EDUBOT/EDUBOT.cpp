@@ -42,6 +42,19 @@ inline void LCD_I2C::write(uint8_t value) {
 // can't assume that its in that state when a sketch starts (and the
 // LiquidCrystal constructor is called).
 
+SPEED::SPEED(int pin) {
+	pinMode(pin, OUTPUT);
+	_pin = pin;
+}
+void SPEED::setSpeed(int speed){
+speed = map(speed, 0, 100, 0, 1023);
+analogWrite(_pin, speed);
+}
+
+
+
+
+
 MOTOR::MOTOR(byte pin1, byte pin2) {
   this->pin1 = pin1;
   this->pin2 = pin2;
@@ -55,7 +68,6 @@ void MOTOR::start_motor() {
   pinMode(pin2, OUTPUT);
   //off();
 }
-
 
 void MOTOR::forward() {
   digitalWrite(pin1, HIGH);

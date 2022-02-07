@@ -1,19 +1,23 @@
 #include <EDUBOT.h>
 
 
-MOTOR motorA(9, 8, 12); //IN1, IN2, ENA
-MOTOR motorB(10, 11, 13); //IN3, IN4, ENB
+MOTOR   motorA(9, 8);     //IN1, IN2, 
+MOTOR   motorB(10, 11);   //IN3, IN4, 
+SPEED   enAspeed(12);     //ENA
+SPEED   enBspeed(13);     //ENB
+
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
+
 }
  
 void loop() {
   // put your main code here, to run repeatedly:
 
-motorA.speed(50);
+enAspeed.setSpeed(50);
 motorA.reverse();
-motorB.speed(50);
-motorB.forward();
 
+enBspeed.setSpeed(50);
+motorA.reverse();
 }
