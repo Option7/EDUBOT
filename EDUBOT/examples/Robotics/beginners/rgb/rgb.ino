@@ -10,6 +10,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 rgb.redOn();
-delay(1000);
+rgb.greenOn();
+rgb.blueOn();
 
 }

@@ -74,8 +74,8 @@ MOTOR::MOTOR() {
   byte eb  = 5;
   byte in1 = 9;
   byte in2 = 12;
-  byte in3 = 10;
-  byte in4 = 6;
+  byte in3 = 6;
+  byte in4 = 10;
   start();
 }
 
