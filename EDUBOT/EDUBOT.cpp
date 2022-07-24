@@ -223,38 +223,27 @@ void RGB::start(){
 
 void RGB::redOn(){
 	digitalWrite(red, HIGH);
-	digitalWrite(green, LOW);
-	digitalWrite(blue, LOW);	
+		
 }
 
 void RGB::redOff(){
 	digitalWrite(red, LOW);
-	digitalWrite(green, LOW);
-	digitalWrite(blue, LOW);	
 }
 
 void RGB::greenOn(){
-	digitalWrite(red, LOW);
-	digitalWrite(green, HIGH);
-	digitalWrite(blue, LOW);
 	
+	digitalWrite(green, HIGH);
 }
 
 void RGB::greenOff(){
-	digitalWrite(red, LOW);
-	digitalWrite(green, LOW);
-	digitalWrite(blue, LOW);	
+	digitalWrite(green, LOW);	
 }
 
 void RGB::blueOn(){
-	digitalWrite(red, LOW);
-	digitalWrite(green, LOW);
 	digitalWrite(blue, HIGH);	
 }
 
 void RGB::blueOff(){
-	digitalWrite(red, LOW);
-	digitalWrite(green, LOW);
 	digitalWrite(blue, LOW);	
 }
 
