@@ -69,23 +69,38 @@ class MOTOR {
   private:
     byte pin1;
 	byte pin2;
+  
+  byte ea  = 11;
+  byte eb  = 5;
+  byte in1 = 9;
+  byte in2 = 12;
+  byte in3 = 10;
+  byte in4 = 6;
     
   public:
     // Setup pin1 and pin2 for MOTOR object and call start_motor()
     MOTOR(byte pin1, byte pin2);
+	MOTOR();
 
     // Setup both pin1 and pin2 as OUTPUT
     void start_motor();
+	void start();
     
     // Move MOTOR forward
     void forward();
+	void leftForward();
+	void rightForward();
 
     // Move MOTOR reverse
     void reverse();
+	void leftReverse();
+	void rightReverse();
 	
 	
 	//Make MOTOR stop
 	void stop();
+	void leftStop();
+	void rightStop();
 };
 
 class ULTRASONIC {
@@ -93,16 +108,68 @@ class ULTRASONIC {
   private:
     byte trig;
 	byte echo;
-    
+    byte tri;
+	byte ech;
   public:
     // Set parameters trig and echo for ULTRASONIC object and call start_ultrasonic()
     ULTRASONIC(byte trig, byte echo);
+	ULTRASONIC();
 
     // Derive distance data
     int getDistance();
+	int distance();
     
     // Configure ULTRASONIC pins 
     void start_ultrasonic();
+    void start();
+
+};
+
+class RGB {
+  
+  private:
+    //	RGB
+//R = 4
+//G = 3 
+//B = 2
+	
+	byte red   = 4;
+    byte green = 3;	
+	byte blue  = 2;
+	
+    
+  public:
+    // Set pin parameter for LIGHT object and call start()
+    RGB();
+
+    
+    
+    // Configure LIGHT pin
+    void start();
+	
+	// Turn LIGHT pin ON
+    void redOn();
+	
+	// Turn LIGHT pin OFF
+    void redOff();
+	
+	// Turn LIGHT pin OFF
+    void greenOn();
+	
+	// Turn LIGHT pin OFF
+    void greenOff();
+	
+	// Turn LIGHT pin OFF
+    void blueOn();
+	
+	// Turn LIGHT pin OFF
+    void blueOff();
+	
+	// Turn Purple light ON
+    void purpleOn();
+	
+	// Turn Purple light OFF
+    void purpleOff();
 
 
 };

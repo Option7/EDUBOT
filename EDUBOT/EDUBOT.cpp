@@ -61,13 +61,75 @@ MOTOR::MOTOR(byte pin1, byte pin2) {
   start_motor();
 }
 
+MOTOR::MOTOR() {
+	
+//	EA   = 11
+//  EB   = 5
+//  IN 1 = 9 
+//  IN 2 = 12
+//  IN 3 = 10
+//  IN 4 = 6 
 
+  byte ea  = 11;
+  byte eb  = 5;
+  byte in1 = 9;
+  byte in2 = 12;
+  byte in3 = 10;
+  byte in4 = 6;
+  start();
+}
 
 void MOTOR::start_motor() {
   pinMode(pin1, OUTPUT);
   pinMode(pin2, OUTPUT);
   //off();
 }
+
+void MOTOR::start() {
+	
+  pinMode(ea, OUTPUT);
+  pinMode(eb, OUTPUT);	
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+  
+}
+
+void MOTOR::leftForward() {
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  digitalWrite(ea, HIGH);
+}
+
+void MOTOR::rightForward() {
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+  digitalWrite(eb, HIGH);
+}
+
+void MOTOR::leftReverse() {
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  digitalWrite(ea, HIGH);
+}
+
+void MOTOR::rightReverse() {
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+  digitalWrite(eb, HIGH);
+}
+
+void MOTOR::leftStop() {
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+}
+
+void MOTOR::rightStop() {
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
+}
+
 
 void MOTOR::forward() {
   digitalWrite(pin1, HIGH);
@@ -90,10 +152,39 @@ ULTRASONIC::ULTRASONIC(byte trig, byte echo) {
   start_ultrasonic();
 }
 
+ULTRASONIC::ULTRASONIC() {
+  byte tri = 7;
+  byte ech = 8;
+  start();
+}
+
 void ULTRASONIC::start_ultrasonic() {
   pinMode(trig, OUTPUT);
   pinMode(echo, INPUT);
   //off();
+}
+
+void ULTRASONIC::start() {
+  pinMode(tri, OUTPUT);
+  pinMode(ech, INPUT);
+  //off();
+}
+
+
+int ULTRASONIC::distance() {
+  digitalWrite(tri, LOW);
+  delayMicroseconds(2);
+  digitalWrite(tri, HIGH);
+  delayMicroseconds(8);
+  digitalWrite(tri, LOW);
+  
+  int duration;
+  int distance ;
+   
+  duration= pulseIn(ech, HIGH);
+  distance = (duration/2) / 29.1;
+  
+  return distance;
 }
 
 int ULTRASONIC::getDistance() {
@@ -110,6 +201,67 @@ int ULTRASONIC::getDistance() {
   distance = (duration/2) / 29.1;
   
   return distance;
+}
+
+RGB::RGB(){
+//	RGB
+//R = 4
+//G = 3 
+//B = 2
+	
+	byte red   = 4;
+    byte green = 3;	
+	byte blue  = 2;
+	start();	
+}
+
+void RGB::start(){
+	pinMode(red,   OUTPUT);
+	pinMode(green, OUTPUT);
+	pinMode(blue,  OUTPUT);	
+}
+
+void RGB::redOn(){
+	digitalWrite(red, HIGH);
+	digitalWrite(green, LOW);
+	digitalWrite(blue, LOW);	
+}
+
+void RGB::redOff(){
+	digitalWrite(red, LOW);
+	digitalWrite(green, LOW);
+	digitalWrite(blue, LOW);	
+}
+
+void RGB::greenOn(){
+	digitalWrite(red, LOW);
+	digitalWrite(green, HIGH);
+	digitalWrite(blue, LOW);
+	
+}
+
+void RGB::greenOff(){
+	digitalWrite(red, LOW);
+	digitalWrite(green, LOW);
+	digitalWrite(blue, LOW);	
+}
+
+void RGB::blueOn(){
+	digitalWrite(red, LOW);
+	digitalWrite(green, LOW);
+	digitalWrite(blue, HIGH);	
+}
+
+void RGB::blueOff(){
+	digitalWrite(red, LOW);
+	digitalWrite(green, LOW);
+	digitalWrite(blue, LOW);	
+}
+
+void RGB::purpleOn(){
+	digitalWrite(red, HIGH);
+	digitalWrite(green, LOW);
+	digitalWrite(blue, HIGH);	
 }
 
 LIGHT::LIGHT(byte pin) {
