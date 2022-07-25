@@ -99,30 +99,36 @@ void MOTOR::start() {
 void MOTOR::leftForward() {
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
-  digitalWrite(ea, HIGH);
 }
 
 void MOTOR::rightForward() {
   digitalWrite(in3, HIGH);
   digitalWrite(in4, LOW);
-  digitalWrite(eb, HIGH);
 }
 
 void MOTOR::leftReverse() {
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
-  digitalWrite(ea, HIGH);
 }
 
 void MOTOR::rightReverse() {
   digitalWrite(in3, LOW);
   digitalWrite(in4, HIGH);
-  digitalWrite(eb, HIGH);
 }
 
 void MOTOR::leftStop() {
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
+}
+
+void MOTOR::leftSpeed(int speed){
+	speed = map(speed, 0, 100, 0, 1023);
+	analogWrite(ea, speed );
+}
+
+void MOTOR::rightSpeed(int speed){
+	speed = map(speed, 0, 100, 0, 1023);
+	analogWrite(eb, speed );
 }
 
 void MOTOR::rightStop() {

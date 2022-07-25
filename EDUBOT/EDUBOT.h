@@ -101,6 +101,10 @@ class MOTOR {
 	void stop();
 	void leftStop();
 	void rightStop();
+	
+	//Control MOTOR SPEED
+	void leftSpeed();
+	void rightSpeed();
 };
 
 class ULTRASONIC {
