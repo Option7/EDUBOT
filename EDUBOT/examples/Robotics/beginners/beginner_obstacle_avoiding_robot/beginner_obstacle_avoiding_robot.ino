@@ -13,12 +13,12 @@ void loop() {
 
 if (ultraSonic.distance() < 30){
 motor.leftReverse();
-motor.leftForward();
+motor.rightForward();
 }
 
 if (ultraSonic.distance() > 30){
 motor.leftForward();
-motorB.rightForward();
+motor.rightForward();
 } 
 Serial.println(ultraSonic.distance());
 }

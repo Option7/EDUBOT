@@ -108,8 +108,8 @@ class ULTRASONIC {
   private:
     byte trig;
 	byte echo;
-    byte tri;
-	byte ech;
+    byte tri = 7;
+    byte ech = 8;
   public:
     // Set parameters trig and echo for ULTRASONIC object and call start_ultrasonic()
     ULTRASONIC(byte trig, byte echo);
